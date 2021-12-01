@@ -1,6 +1,7 @@
-use std::{process::Output, time::Duration};
+use std::time::Duration;
 
 use num::complex::Complex;
+use std::ops::Add;
 
 fn calculate_mandelbrot(
     max_iters: usize,
@@ -64,7 +65,7 @@ fn add_with_lifetimes<'a, 'b>(i: &'a i32, j: &'b i32) -> i32 {
     *i + *j
 }
 
-fn add<T: std::ops::Add<Output = T>>(i: T, j: T) -> T {
+fn add<T: Add<Output = T>>(i: T, j: T) -> T {
     i + j
 }
 
