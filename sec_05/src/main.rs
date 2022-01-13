@@ -1,3 +1,6 @@
+mod emulation_cpu;
+mod make_random;
+
 use std::intrinsics::transmute;
 
 fn main() {
