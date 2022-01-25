@@ -1,0 +1,16 @@
+[package]
+name = "pra_rust"
+version = "0.1.0"
+edition = "2018"
+authors = ["Oku <w.40141@gmail.com>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.3.14"
+tokio = { version = "1", features = ["full"] }
+warp = "0.3"
+
+[[bin]]
+name = "main5_1"
+path = "src/sec5_1.rs"
