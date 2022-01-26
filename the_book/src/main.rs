@@ -20,6 +20,17 @@ impl Guess {
     }
 }
 
+fn tmp(n: i32) -> Vec<i32> {
+    (1..=n).collect::<Vec<i32>>()
+}
+
+#[test]
+fn tmp_test() {
+    let actual = tmp(5);
+    let expect = vec![1, 2, 3, 4, 5];
+    assert_eq!(actual, expect);
+}
+
 fn main() {
     println!("Guess the number!");
 
