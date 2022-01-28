@@ -56,7 +56,7 @@ impl<T> Point<T> {
         &self.y
     }
 
-    // fn distance_from_origin(&self) -> f32 {
-    //     (self.x.pow(2) + self.y.pow(2)).sqrt()
-    // }
+    fn distance_from_origin(&self) -> f32 {
+        (self.x.pow(2) + self.y.pow(2)).sqrt()
+    }
 }
