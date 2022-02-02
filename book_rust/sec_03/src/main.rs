@@ -1,23 +1,24 @@
 fn main() {
     let msg = String::from("I am a student.");
-    let g1 = msg;
-    println!("{g1}");
-    let ten = 10;
-    let t = x2(&ten);
-    println!("{t}");
-    println!("{ten}");
-    let banana = Item("Banana".to_string(), 300);
-    let apple = Item("Apple".to_string(), 200);
-    let orange = Item("Orange".to_string(), 150);
-    let items = vec![banana, apple, orange];
-    let total = print_add_sum_items(&items);
-    println!("{total}");
-    let s: String = String::from("abcdefghijk");
-    let slice = &s[1..3];
-    println!("{slice}");
-    let li: Vec<i32> = (1..10).collect();
-    let s = sum_slice(0, &li);
-    println!("{s}")
+    hex_dump("我が輩は猫である。まだ名前はない。")
+    // let g1 = msg;
+    // println!("{g1}");
+    // let ten = 10;
+    // let t = x2(&ten);
+    // println!("{t}");
+    // println!("{ten}");
+    // let banana = Item("Banana".to_string(), 300);
+    // let apple = Item("Apple".to_string(), 200);
+    // let orange = Item("Orange".to_string(), 150);
+    // let items = vec![banana, apple, orange];
+    // let total = print_add_sum_items(&items);
+    // println!("{total}");
+    // let s: String = String::from("abcdefghijk");
+    // let slice = &s[1..3];
+    // println!("{slice}");
+    // let li: Vec<i32> = (1..10).collect();
+    // let s = sum_slice(0, &li);
+    // println!("{s}")
 }
 
 fn sum_slice(start: i32, slice: &[i32]) -> i32 {
@@ -44,4 +45,21 @@ fn print_add_sum_items(items: &Vec<Item>) -> i64 {
         total += it.1;
     }
     total
+}
+
+fn hex_dump(s: &str) {
+    for (i, c) in s.bytes().enumerate() {
+        if i % 16 == 0 {
+            print!("{i:08x}|");
+        }
+        if i % 4 == 3 {
+            print!("{c:02x}|");
+        } else {
+            print!("{c:02x} ")
+        }
+        if i % 16 == 15 {
+            println!("");
+        }
+    }
+    println!()
 }
