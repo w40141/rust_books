@@ -1,4 +1,15 @@
+use crate::random::{linear, xorshift};
+
+// pub mod mod_random;
+mod mod_path;
+mod random;
+
 fn main() {
+    let mut seed = 1u32;
+    let r1 = linear::rand(&mut seed);
+    let r2 = xorshift::rand(&mut seed);
+    println!("{r1}, {r2}");
+
     let mut a = Counter::new();
     count(Some(&mut a));
     count(Some(&mut a));
