@@ -7,6 +7,7 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.53"
-reqwest = "0.11.9"
+regex = "1.5.4"
+reqwest = {version = "0.11.9", features = ["json", "blocking"]}
 scraper = "0.12.0"
-tokio = "1.16.1"
+tokio = {version = "1.16.1", features = ["full"]}
