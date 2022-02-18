@@ -1,3 +1,4 @@
+use anyhow::Result;
 use std::{sync, thread, time};
 
 fn sleep_print(name: &str) {
@@ -7,13 +8,14 @@ fn sleep_print(name: &str) {
     }
 }
 
-fn sleep_sender(name: &str, sender: sync::mpsc::Sender<String>) {
+fn sleep_sender(name: &str, sender: sync::mpsc::Sender<String>) -> Result<()> {
     for i in 1..=5 {
         let msg = format!("{name}: {i}");
-        sender.send(msg).unwrap();
+        sender.send(msg)?;
         thread::sleep(time::Duration::from_millis(1000));
     }
-    sender.send("quit".to_string()).unwrap();
+    sender.send("quit".to_string())?;
+    Ok(())
 }
 
 fn fib(n: i64) -> i64 {
@@ -31,7 +33,7 @@ fn show_time(star_time: time::Instant) {
     println!("実行時間：{elapsed:?}")
 }
 
-pub fn main() {
+pub fn main() -> Result<()> {
     // println!("---スレッドなし---");
     // sleep_print("スレッドなし");
     //
@@ -76,4 +78,5 @@ pub fn main() {
         thread::sleep(time::Duration::from_micros(300));
     }
     // show_time(star_time);
+    Ok(())
 }
