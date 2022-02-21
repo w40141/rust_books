@@ -6,9 +6,9 @@ use std::{
     time::Duration,
 };
 
-pub fn server() {
+pub fn main() {
     // 1
-    let server_addr = "127.0.0.1:888";
+    let server_addr = "127.0.0.1:8888";
     // 2
     let (tx, rx) = mpsc::channel::<String>();
     // 3
