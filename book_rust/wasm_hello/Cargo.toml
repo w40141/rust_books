@@ -1,15 +1,11 @@
 [package]
-name = "sec_06"
+name = "wasm_hello"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-cargo-expand = "1.0.16"
-libc = "0.2.119"
-peg = "0.8.0"
 wasm-bindgen = "0.2.79"
-
-[dev-dependencies]
-cc = "1.0.73"
