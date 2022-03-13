@@ -1,8 +1,7 @@
 extern crate block_modes;
 
+use aes::cipher::block_padding::Pkcs7;
 use aes::Aes256;
-use block_modes::block_padding::Pkcs7;
-use block_modes::{BlockMode, Cbc};
 use getrandom::getrandom;
 use sha2::{Digest, Sha256};
 
