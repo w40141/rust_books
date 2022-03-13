@@ -12,10 +12,10 @@ pub mod sec_2;
 pub mod sec_3;
 pub mod sec_4;
 
-#[link(name = "mycalc", kind = "static")]
-extern "C" {
-    fn mul(a: isize, b: isize) -> isize;
-}
+// #[link(name = "mycalc", kind = "static")]
+// extern "C" {
+//     fn mul(a: isize, b: isize) -> isize;
+// }
 
 fn main() {
     // sec_1::sec_01();
@@ -30,12 +30,12 @@ fn main() {
     // let filename = &args[1];
     // let src = fs::read_to_string(filename).unwrap();
     // runner::run(&src);
-    unsafe {
-        let n = mul(30, 5);
-        println!("{n}");
-        let n = mul(8, 80);
-        println!("{n}");
-    }
+    // unsafe {
+    //     let n = mul(30, 5);
+    //     println!("{n}");
+    //     let n = mul(8, 80);
+    //     println!("{n}");
+    // }
 }
 
 #[cfg(test)]
