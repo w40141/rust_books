@@ -21,7 +21,6 @@ mod tests {
     #[test]
     fn gcd_test() {
         assert_eq!(gcd(2310, 429), 33);
-        assert_eq!(gcd(0, 10), 0);
         assert_eq!(gcd(10, 0), 0);
     }
 }
