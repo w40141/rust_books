@@ -18,3 +18,14 @@ async-trait = "0.1.58"
 reqwest = "0.11.12"
 serde = { version = "1.0.147", features = ["derive"] }
 tokio = { version = "1.21.2", features = ["macros", "rt-multi-thread"] }
+sqlx = { version = "0.6.2", default-features = false, features = [
+  "runtime-actix-rustls",
+  "macros",
+  "postgres",
+  "uuid",
+  "chrono",
+  "migrate",
+] }
+config = "0.13.2"
+uuid = { version = "1.2.1", features = ["v4"] }
+chrono = "0.4.23"
