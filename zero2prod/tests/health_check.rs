@@ -33,20 +33,17 @@ async fn spawn_app() -> TestApp {
 
     let configuration = get_configuration().expect("Failed to read configuration.");
     let database = configuration.database();
-    let database_name = Uuid::new_v4().to_string();
     let configuration = Setting::new(
         DatabaseSettings::new(
             database.username().to_string(),
             database.password().to_string(),
             *database.port(),
             database.host().to_string(),
-            database_name,
+            Uuid::new_v4().to_string(),
         ),
         *configuration.application_port(),
     );
-    let connection_pool = PgPool::connect(&configuration.database().connection_string())
-        .await
-        .expect("Failed to connect to Postgres.");
+    let connection_pool = configure_database(&configuration.database()).await;
 
     let server = run(listener, connection_pool.clone()).expect("Failed to bind address");
     let _ = tokio::spawn(server);
