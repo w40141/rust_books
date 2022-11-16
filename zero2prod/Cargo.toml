@@ -29,3 +29,5 @@ sqlx = { version = "0.6.2", default-features = false, features = [
 config = "0.13.2"
 uuid = { version = "1.2.1", features = ["v4"] }
 chrono = "0.4.23"
+env_logger = "0.9.3"
+log = "0.4.17"
